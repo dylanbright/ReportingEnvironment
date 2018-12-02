@@ -1,0 +1,734 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "certificates_AzureClassicRunAsCertificate_base64Value": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "certificates_AzureRunAsCertificate_base64Value": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "automationAccounts_dcb_reportng_001_name": {
+            "defaultValue": "dcb-reportng-001",
+            "type": "String"
+        },
+        "modules_Azure_name": {
+            "defaultValue": "Azure",
+            "type": "String"
+        },
+        "modules_AzureRM.Sql_name": {
+            "defaultValue": "AzureRM.Sql",
+            "type": "String"
+        },
+        "connectionTypes_Azure_name": {
+            "defaultValue": "Azure",
+            "type": "String"
+        },
+        "modules_Azure.Storage_name": {
+            "defaultValue": "Azure.Storage",
+            "type": "String"
+        },
+        "modules_AuditPolicyDsc_name": {
+            "defaultValue": "AuditPolicyDsc",
+            "type": "String"
+        },
+        "modules_PSDscResources_name": {
+            "defaultValue": "PSDscResources",
+            "type": "String"
+        },
+        "modules_xDSCDomainjoin_name": {
+            "defaultValue": "xDSCDomainjoin",
+            "type": "String"
+        },
+        "modules_AzureRM.Compute_name": {
+            "defaultValue": "AzureRM.Compute",
+            "type": "String"
+        },
+        "modules_AzureRM.Profile_name": {
+            "defaultValue": "AzureRM.Profile",
+            "type": "String"
+        },
+        "modules_AzureRM.Storage_name": {
+            "defaultValue": "AzureRM.Storage",
+            "type": "String"
+        },
+        "modules_AzureRM.Resources_name": {
+            "defaultValue": "AzureRM.Resources",
+            "type": "String"
+        },
+        "modules_SecurityPolicyDsc_name": {
+            "defaultValue": "SecurityPolicyDsc",
+            "type": "String"
+        },
+        "modules_AzureRM.Automation_name": {
+            "defaultValue": "AzureRM.Automation",
+            "type": "String"
+        },
+        "modules_xRemoteDesktopAdmin_name": {
+            "defaultValue": "xRemoteDesktopAdmin",
+            "type": "String"
+        },
+        "modules_ComputerManagementDsc_name": {
+            "defaultValue": "ComputerManagementDsc",
+            "type": "String"
+        },
+        "modules_GPRegistryPolicyParser_name": {
+            "defaultValue": "GPRegistryPolicyParser",
+            "type": "String"
+        },
+        "connections_AzureRunAsConnection_name": {
+            "defaultValue": "AzureRunAsConnection",
+            "type": "String"
+        },
+        "runbooks_AzureAutomationTutorial_name": {
+            "defaultValue": "AzureAutomationTutorial",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Core_name": {
+            "defaultValue": "Microsoft.PowerShell.Core",
+            "type": "String"
+        },
+        "certificates_AzureRunAsCertificate_name": {
+            "defaultValue": "AzureRunAsCertificate",
+            "type": "String"
+        },
+        "modules_Microsoft.WSMan.Management_name": {
+            "defaultValue": "Microsoft.WSMan.Management",
+            "type": "String"
+        },
+        "modules_xPowerShellExecutionPolicy_name": {
+            "defaultValue": "xPowerShellExecutionPolicy",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Utility_name": {
+            "defaultValue": "Microsoft.PowerShell.Utility",
+            "type": "String"
+        },
+        "connectionTypes_AzureServicePrincipal_name": {
+            "defaultValue": "AzureServicePrincipal",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Security_name": {
+            "defaultValue": "Microsoft.PowerShell.Security",
+            "type": "String"
+        },
+        "modules_StateConfigCompositeResources_name": {
+            "defaultValue": "StateConfigCompositeResources",
+            "type": "String"
+        },
+        "runbooks_AzureAutomationTutorialScript_name": {
+            "defaultValue": "AzureAutomationTutorialScript",
+            "type": "String"
+        },
+        "connections_AzureClassicRunAsConnection_name": {
+            "defaultValue": "AzureClassicRunAsConnection",
+            "type": "String"
+        },
+        "connectionTypes_AzureClassicCertificate_name": {
+            "defaultValue": "AzureClassicCertificate",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Management_name": {
+            "defaultValue": "Microsoft.PowerShell.Management",
+            "type": "String"
+        },
+        "runbooks_AzureAutomationTutorialPython2_name": {
+            "defaultValue": "AzureAutomationTutorialPython2",
+            "type": "String"
+        },
+        "runbooks_AzureClassicAutomationTutorial_name": {
+            "defaultValue": "AzureClassicAutomationTutorial",
+            "type": "String"
+        },
+        "modules_Microsoft.PowerShell.Diagnostics_name": {
+            "defaultValue": "Microsoft.PowerShell.Diagnostics",
+            "type": "String"
+        },
+        "certificates_AzureClassicRunAsCertificate_name": {
+            "defaultValue": "AzureClassicRunAsCertificate",
+            "type": "String"
+        },
+        "modules_Orchestrator.AssetManagement.Cmdlets_name": {
+            "defaultValue": "Orchestrator.AssetManagement.Cmdlets",
+            "type": "String"
+        },
+        "runbooks_AzureClassicAutomationTutorialScript_name": {
+            "defaultValue": "AzureClassicAutomationTutorialScript",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001'.",
+            "type": "Microsoft.Automation/automationAccounts",
+            "name": "[parameters('automationAccounts_dcb_reportng_001_name')]",
+            "apiVersion": "2015-10-31",
+            "location": "eastus2",
+            "tags": {},
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/certificates/AzureClassicRunAsCertificate'.",
+            "type": "Microsoft.Automation/automationAccounts/certificates",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('certificates_AzureClassicRunAsCertificate_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "description": "This certificate is used to authenticate with Azure so that you can manage Azure classic resources from runbooks. For details on this certificate, or to manage it, go to this account’s Settings.  For example usage, see the tutorial runbook in this account.",
+                "isExportable": false,
+                "thumbprint": "94CCE1CC929F1CEC4045ABFAF1AB68D1FD1E4C99",
+                "base64Value": "[parameters('certificates_AzureClassicRunAsCertificate_base64Value')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/certificates/AzureRunAsCertificate'.",
+            "type": "Microsoft.Automation/automationAccounts/certificates",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('certificates_AzureRunAsCertificate_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "description": "This certificate is used to authenticate with the service principal that was automatically created for this account. For details on this service principal and certificate, or to recreate them, go to this account’s Settings. For example usage, see the tutorial runbook in this account.",
+                "isExportable": true,
+                "thumbprint": "250EBB8DCAEBB67F34C0A2C954204F43D3F237AF",
+                "base64Value": "[parameters('certificates_AzureRunAsCertificate_base64Value')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/connections/AzureClassicRunAsConnection'.",
+            "type": "Microsoft.Automation/automationAccounts/connections",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('connections_AzureClassicRunAsConnection_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "description": null,
+                "fieldDefinitionValues": null,
+                "connectionType": {
+                    "name": "AzureClassicCertificate"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/connections/AzureRunAsConnection'.",
+            "type": "Microsoft.Automation/automationAccounts/connections",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('connections_AzureRunAsConnection_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "description": null,
+                "fieldDefinitionValues": null,
+                "connectionType": {
+                    "name": "AzureServicePrincipal"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/connectionTypes/Azure'.",
+            "type": "Microsoft.Automation/automationAccounts/connectionTypes",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('connectionTypes_Azure_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "isGlobal": true,
+                "fieldDefinitions": {
+                    "AutomationCertificateName": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    },
+                    "SubscriptionID": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/connectionTypes/AzureClassicCertificate'.",
+            "type": "Microsoft.Automation/automationAccounts/connectionTypes",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('connectionTypes_AzureClassicCertificate_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "isGlobal": true,
+                "fieldDefinitions": {
+                    "SubscriptionName": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    },
+                    "SubscriptionId": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    },
+                    "CertificateAssetName": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/connectionTypes/AzureServicePrincipal'.",
+            "type": "Microsoft.Automation/automationAccounts/connectionTypes",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('connectionTypes_AzureServicePrincipal_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "isGlobal": true,
+                "fieldDefinitions": {
+                    "ApplicationId": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    },
+                    "TenantId": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    },
+                    "CertificateThumbprint": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    },
+                    "SubscriptionId": {
+                        "isEncrypted": false,
+                        "isOptional": false,
+                        "type": "System.String"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AuditPolicyDsc'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AuditPolicyDsc_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Azure'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Azure_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Azure.Storage'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Azure.Storage_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AzureRM.Automation'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AzureRM.Automation_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AzureRM.Compute'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AzureRM.Compute_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AzureRM.Profile'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AzureRM.Profile_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AzureRM.Resources'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AzureRM.Resources_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AzureRM.Sql'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AzureRM.Sql_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/AzureRM.Storage'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_AzureRM.Storage_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/ComputerManagementDsc'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_ComputerManagementDsc_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/GPRegistryPolicyParser'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_GPRegistryPolicyParser_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Microsoft.PowerShell.Core'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Microsoft.PowerShell.Core_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Microsoft.PowerShell.Diagnostics'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Microsoft.PowerShell.Diagnostics_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Microsoft.PowerShell.Management'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Microsoft.PowerShell.Management_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Microsoft.PowerShell.Security'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Microsoft.PowerShell.Security_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Microsoft.PowerShell.Utility'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Microsoft.PowerShell.Utility_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Microsoft.WSMan.Management'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Microsoft.WSMan.Management_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/Orchestrator.AssetManagement.Cmdlets'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_Orchestrator.AssetManagement.Cmdlets_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/PSDscResources'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_PSDscResources_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/SecurityPolicyDsc'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_SecurityPolicyDsc_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/StateConfigCompositeResources'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_StateConfigCompositeResources_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/xDSCDomainjoin'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_xDSCDomainjoin_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/xPowerShellExecutionPolicy'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_xPowerShellExecutionPolicy_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/modules/xRemoteDesktopAdmin'.",
+            "type": "Microsoft.Automation/automationAccounts/modules",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('modules_xRemoteDesktopAdmin_name'))]",
+            "apiVersion": "2015-10-31",
+            "scale": null,
+            "properties": {
+                "contentLink": {}
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/runbooks/AzureAutomationTutorial'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('runbooks_AzureAutomationTutorial_name'))]",
+            "apiVersion": "2018-06-30",
+            "location": "eastus2",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "runbookType": "GraphPowerShell",
+                "logVerbose": false,
+                "logProgress": false,
+                "logActivityTrace": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/runbooks/AzureAutomationTutorialPython2'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('runbooks_AzureAutomationTutorialPython2_name'))]",
+            "apiVersion": "2018-06-30",
+            "location": "eastus2",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "runbookType": "Python2",
+                "logVerbose": false,
+                "logProgress": false,
+                "logActivityTrace": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/runbooks/AzureAutomationTutorialScript'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('runbooks_AzureAutomationTutorialScript_name'))]",
+            "apiVersion": "2018-06-30",
+            "location": "eastus2",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "runbookType": "PowerShell",
+                "logVerbose": false,
+                "logProgress": false,
+                "logActivityTrace": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/runbooks/AzureClassicAutomationTutorial'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('runbooks_AzureClassicAutomationTutorial_name'))]",
+            "apiVersion": "2018-06-30",
+            "location": "eastus2",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "runbookType": "GraphPowerShell",
+                "logVerbose": false,
+                "logProgress": false,
+                "logActivityTrace": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/11541666-34de-4eaa-84a2-801039426abf/resourcegroups/test/providers/Microsoft.Automation/automationAccounts/dcb-reportng-001/runbooks/AzureClassicAutomationTutorialScript'.",
+            "type": "Microsoft.Automation/automationAccounts/runbooks",
+            "name": "[concat(parameters('automationAccounts_dcb_reportng_001_name'), '/', parameters('runbooks_AzureClassicAutomationTutorialScript_name'))]",
+            "apiVersion": "2018-06-30",
+            "location": "eastus2",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "runbookType": "PowerShell",
+                "logVerbose": false,
+                "logProgress": false,
+                "logActivityTrace": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccounts_dcb_reportng_001_name'))]"
+            ]
+        }
+    ]
+}
