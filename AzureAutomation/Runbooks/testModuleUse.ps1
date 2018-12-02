@@ -47,6 +47,6 @@ start-job -ScriptBlock {"toad"}
 
 #$acctKey = ConvertTo-SecureString -String "luPZp28GdyJRbFI2wkqWExRlfZgEulkETgob1CALQJPblUg8+Pt5lOSRF7ldDSFtc+tBCknHIeIJw0HBqahk4A==" -AsPlainText -Force
 #$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\dcbreporting001", $acctKey
-$credential Get-AutomationPSCredential -Name "dcbreporting001"
+$credential = Get-AutomationPSCredential -Name "dcbreporting001"
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\dcbreporting001.file.core.windows.net\tempdata" -Credential $credential -Persist
 get-psdrive
