@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "automationAccounts_sample_name": {
-            "defaultValue": "sample",
+            "defaultValue": "dcb-reporting-automation-099",
             "type": "String"
         },
         "modules_Azure_name": {
